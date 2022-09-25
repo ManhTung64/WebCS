@@ -1,0 +1,17 @@
+﻿@{
+    var name = "Application Dev";
+    var code = 1670;
+    List<string> technologies = new List<string>();
+    technologies.Add(".Net core");
+    technologies.Add(".Net core2");
+    technologies.Add(".Net core3");
+}
+
+<h2>Module Name: @name</h2>
+<h2>Module Code: @code</h2>
+<ol>
+    @foreach (var tech in technologies)
+    {
+        <li>@tech</li>
+    }
+</ol>

@@ -1,0 +1,19 @@
+﻿@model List<Student> 
+<h1>Student count: @Model.Count</h1>
+@{
+    var total = Model.Count;
+    var sum = 0.0;
+    Layout = null;
+//    Layout = "~/....";
+}
+
+@foreach (var student in Model)
+{
+    <h1>Student id:    @student.Id</h1>
+    <h1>Student Name:  @student.Name</h1>
+    <h1>Student age:   @student.Age</h1>
+    <h1>Student grade: @student.Grade</h1>
+    sum = sum + @student.Grade;
+}
+@(sum/total)
+
