@@ -1,0 +1,10 @@
+﻿@model WebForm.Models.University
+
+<form asp-controller="University" asp-action="Index">
+    English name: <input asp-for="EngName" name="eName"/>
+    VietName name: <input asp-for="VieName" name="vName"/>
+    Address: <input asp-for="Address" name="address"/>
+    Introduct: <input asp-for="Intro" name="intro"/>
+    Image: <input asp-for="Image" name="img"/>
+    <input type="submit"/>
+</form>
