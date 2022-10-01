@@ -1,9 +1,13 @@
 ﻿@model List<Person>
 
-<table border="1">
+<div class="col-md-8 text-center mt-3">
+<table class="table table-bordered">
     <thead>
         <tr>
             <th colspan="5">Person list</th>
+            <th >  
+                <a class="btn btn-primary" asp-controller="Person" asp-action="Add">Add more</a>
+            </th>
         </tr>
         <tr>
             <th>No.</th>
@@ -28,3 +32,4 @@
         }
     </tbody>
 </table>
+</div>
