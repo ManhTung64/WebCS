@@ -11,6 +11,7 @@ namespace web65.Controllers
         {
             return View(persons);
         }
+        //[Route("/add")]
         [HttpGet]
         public IActionResult Add()
         {
@@ -22,6 +23,11 @@ namespace web65.Controllers
             persons.Add(person);
             //return View("Index", persons); // giu nguyen url, nhung gui lai request (add them) khi f5 (bi duplicate.)
             return RedirectToAction("Index", persons);//thay doi url va k bi duplicate.
+        }
+        public IActionResult Delete(int id)
+        {
+            persons.RemoveAt(id);
+            return RedirectToAction("Index", persons);
         }
     }
 }
