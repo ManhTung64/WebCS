@@ -6,7 +6,7 @@ namespace web7.Models
     {
         public int Id { get; set; }
         [Required]
-        [MinLength(1)]
+        [MinLength(1, ErrorMessage = "toi thieu 1")]
         [MaxLength(30)]
         public string Name { get; set; }
         [Range(18,23)]

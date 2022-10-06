@@ -11,8 +11,6 @@ using web7.Models;
 
 namespace web7.Controllers
 {
-
-    [Authorize]
     public class StudentsController : Controller
     {
         private readonly ApplicationDbContext _context;
