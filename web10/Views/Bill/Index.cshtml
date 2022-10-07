@@ -1,0 +1,23 @@
+﻿@model List<Bill>
+
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Customer name</th>
+                <th>Price</th>
+                <th>Quantity</th>
+            </tr>
+        </thead>
+        <tbody>
+        @foreach (var bill in Model)
+        {
+                    <tr>
+                        <td>@bill.Id</td>
+                        <td>@bill.productName</td>
+                        <td>@bill.price</td>
+                        <td>@bill.quantity</td>
+                    </tr>
+        }
+        </tbody>
+    </table>

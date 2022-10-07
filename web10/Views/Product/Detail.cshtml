@@ -1,0 +1,20 @@
+﻿@model web10.Models.Product
+
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Customer name</th>
+                <th>Price</th>
+                <th>Quantity</th>
+            </tr>
+        </thead>
+        <tbody>
+                        <tr>
+                            <td>@Model.Id</td>
+                            <td>@Model.ProductName</td>
+                            <td>@Model.Price</td>
+                            <td>@Model.Quantity</td>
+                        </tr>
+        </tbody>
+    </table>
