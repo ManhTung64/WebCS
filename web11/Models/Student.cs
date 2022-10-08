@@ -21,6 +21,7 @@ namespace web11.Models
         [Required]
         [Range(0,10)]
         public double Grade { get; set; }
+        [Required]
         public string Image { get; set; }
     }
 }

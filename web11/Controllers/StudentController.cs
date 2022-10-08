@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using System.Linq;
 using web11.Data;
+using web11.Models;
 
 namespace web11.Controllers
 {
@@ -24,11 +25,23 @@ namespace web11.Controllers
         }
         public IActionResult Edit(int? id)
         {
-            return View("Index");
+            return RedirectToAction("Index");
         }
-        public IActionResult Add(int? id)
+        [HttpGet]
+        public IActionResult Add()
         {
-            return View("Index");
+            return View();
+        }
+        [HttpPost]
+        public IActionResult Add(Student student)
+        {
+            if (ModelState.IsValid)
+            {
+                context.students.Add(student);
+                context.SaveChanges();
+                return RedirectToAction("Index");
+            }
+            return View(student);
         }
         public IActionResult Delete(int? id)
         {
