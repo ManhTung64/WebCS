@@ -12,6 +12,7 @@ namespace web11.Controllers
         {
             this.context = context;
         }
+        [Route("/")]
         public IActionResult Index()
         {
             var data = context.students.ToList();
@@ -23,9 +24,22 @@ namespace web11.Controllers
             var product = context.students.FirstOrDefault(student => student.Id == id);
             return View(product);
         }
+        [HttpGet]
         public IActionResult Edit(int? id)
         {
-            return RedirectToAction("Index");
+            if (id == null) return NotFound();
+            return View(context.students.Find(id));
+        }
+        public IActionResult Edit(Student student)
+        {
+            if (ModelState.IsValid)
+            {
+                context.students.Update(student);
+                context.SaveChanges();
+                TempData["mess"] = "Thanh cong roi nhe em zai";
+                return RedirectToAction("Index");
+            }
+            return View(student);
         }
         [HttpGet]
         public IActionResult Add()
@@ -39,6 +53,7 @@ namespace web11.Controllers
             {
                 context.students.Add(student);
                 context.SaveChanges();
+                TempData["mess"] = "Thanh cong roi nhe em zai";
                 return RedirectToAction("Index");
             }
             return View(student);
@@ -49,6 +64,8 @@ namespace web11.Controllers
             var student = context.students.Find(id);
             context.students.Remove(student);
             context.SaveChanges();
+            TempData["mess"] = "Thanh cong roi nhe em zai";
+            //su dung tempdata de gui du lieu ve view neu use redirect  
             return RedirectToAction("Index");
         }
     }
