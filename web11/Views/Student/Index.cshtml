@@ -5,10 +5,8 @@
             <tr>
                 <th>Id</th>
                 <th>Name</th>
-                <th>DoB</th>
-                <th>Email</th>
-                <th>Grade</th>
                 <th>Image</th>
+                <th>Menu</th>
             </tr>
         </thead>
         <tbody>
@@ -17,12 +15,13 @@
                 <tr>
                     <td>@student.StudentId</td>
                     <td>@student.Name</td>
-                    <td>@student.DoB.ToLongDateString()</td>
-                    @*.Year to get year, .Now.Year to get now year*@
-                    <td>@student.Email</td>
-                    <td>@student.Grade</td>
-                    <td><img src="@student.Image" width="100" height="100"/></td>
+                    <td><a asp-controller="Student" asp-action="Detail" asp-route-id ="@student.Id"><img src="@student.Image" width="100" height="100"/></a></td>
+                    <td>
+                        <a class="btn btn-info" asp-controller="Student" asp-action="Edit" asp-route-id="@student.Id" onclick="return confirm('Are you sure');">Edit</a>
+                        <a class="btn btn-danger" type="submit" asp-controller="Student" asp-action="Delete" asp-route-id="@student.Id" onclick="return confirm('Are you sure');">Delete</a>
+                    </td>
                 </tr>
             }
+            <a class="btn btn-success" type="submit" asp-controller="Student" asp-action="Add">Add</a>
         </tbody>
    </table>
